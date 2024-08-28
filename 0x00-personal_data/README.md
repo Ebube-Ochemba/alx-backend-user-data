@@ -10,7 +10,8 @@ I learnt about `Personally Identifiable Information` (**PII**), how to implement
 
 > Each file contains the solution to a task in the project.
 
-- [ ] [filtered_logger.py](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x00-personal_data/filtered_logger.py):
-- [ ] [encrypt_password.py](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x00-personal_data/encrypt_password.py):
+- [filtered_logger.py](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x00-personal_data/filtered_logger.py): Multiple task:
+    - [ ] A function called `filter_datum` that returns the log message obfuscated.
+- [encrypt_password.py](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x00-personal_data/encrypt_password.py):
 
 > [test_files](): A folder of test files. Provided by Alx.
