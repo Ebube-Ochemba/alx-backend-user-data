@@ -17,12 +17,7 @@ def filter_datum(fields: List[str], redaction: str,
     Returns:
         str: The obfuscated log message.
     """
-    pattern = f"({'|'.join(fields)})=.*?({separator}|$)"
-
-    def replace(match: re.Match) -> str:
-        """handles the regex formating"""
-        return f"{match.group(1)}={redaction}" + (
-            separator if match.group(2) == separator else ""
-        )
-
-    return re.sub(pattern, replace, message)
+    for field in fields:
+        remix = re.sub(f'{field}=.*?{separator}',
+                         f'{field}={redaction}{separator}', message)
+    return remix
