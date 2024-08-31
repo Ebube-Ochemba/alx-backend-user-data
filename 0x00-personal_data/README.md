@@ -30,8 +30,8 @@ I learnt about `Personally Identifiable Information` (**PII**), how to implement
     ```
     - Update the class to accept a list of strings `fields` constructor argument.
     - Implement the `format` method to filter values in incoming log records using `filter_datum`. Values for `fields` in fields should be filtered.
-
-DO NOT extrapolate FORMAT manually. The format method should be less than 5 lines long.
+    - DO NOT extrapolate `FORMAT` manually. The `format` method should be less than 5 lines long.
+    - [] **#2**: 
 - [encrypt_password.py](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x00-personal_data/encrypt_password.py):
 
 > [test_files](): A folder of test files. Provided by Alx.
