@@ -64,6 +64,26 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
     return db_connection
 
 
+def main():
+    """Main function to retrieve and log user data."""
+    db = get_db()
+    logger = get_logger()
+    cursor = db.cursor()
+
+    cursor.execute("SELECT * FROM users;")
+    for row in cursor.fetchall():
+        name, email, phone, ssn, password, ip, last_login, user_agent = row
+        log_message = (
+            f"name={name}; email={email}; phone={phone}; ssn={ssn}; "
+            f"password={password}; ip={ip}; last_login={last_login}; "
+            f"user_agent={user_agent};"
+        )
+        logger.info(log_message)
+
+    cursor.close()
+    db.close()
+
+
 class RedactingFormatter(logging.Formatter):
     """ Redacting Formatter class """
 
@@ -80,3 +100,7 @@ class RedactingFormatter(logging.Formatter):
         record.msg = filter_datum(self.fields, self.REDACTION,
                                   record.getMessage(), self.SEPARATOR)
         return super().format(record)
+
+
+if __name__ == '__main__':
+    main()
