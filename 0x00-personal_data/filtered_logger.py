@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """A module for log handling"""
 import logging
+import os
 import re
 import mysql.connector
-from os import environ
 from typing import List
 
 
@@ -48,10 +48,10 @@ def get_logger() -> logging.Logger:
 def get_db() -> mysql.connector.connection.MySQLConnection:
     """Returns a MySQL database connection."""
     # Retrieve credentials from environment variables
-    username = environ.get("PERSONAL_DATA_DB_USERNAME", "root")
-    password = environ.get("PERSONAL_DATA_DB_PASSWORD", "")
-    host = environ.get("PERSONAL_DATA_DB_HOST", "localhost")
-    db_name = environ.get("PERSONAL_DATA_DB_NAME")
+    username = os.getenv("PERSONAL_DATA_DB_USERNAME", "root")
+    password = os.getenv("PERSONAL_DATA_DB_PASSWORD", "")
+    host = os.getenv("PERSONAL_DATA_DB_HOST", "localhost")
+    db_name = os.getenv("PERSONAL_DATA_DB_NAME")
 
     # Connect to the MySQL database
     db_connection = mysql.connector.connection.MySQLConnection(
