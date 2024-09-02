@@ -4,7 +4,6 @@ import logging
 import os
 import re
 import mysql.connector
-from mysql.connector import connection
 from typing import List
 
 
@@ -40,13 +39,13 @@ def get_logger() -> logging.Logger:
 
     # Set up stream handler with the RedactingFormatter
     stream_handler = logging.StreamHandler()
-    stream_handler.setFormatter(RedactingFormatter(PII_FIELDS))
+    stream_handler.setFormatter(RedactingFormatter(list(PII_FIELDS)))
     logger.addHandler(stream_handler)
 
     return logger
 
 
-def get_db() -> connection.MySQLConnection:
+def get_db() -> mysql.connector.connection.MySQLConnection:
     """Returns a MySQL database connection."""
     # Retrieve credentials from environment variables
     username = os.getenv("PERSONAL_DATA_DB_USERNAME", "root")
@@ -55,7 +54,7 @@ def get_db() -> connection.MySQLConnection:
     db_name = os.getenv("PERSONAL_DATA_DB_NAME")
 
     # Connect to the MySQL database
-    db_connection = mysql.connector.connect(
+    db_connection = mysql.connector.connection.MySQLConnection(
         user=username,
         password=password,
         host=host,
