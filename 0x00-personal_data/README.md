@@ -34,6 +34,7 @@ I learnt about `Personally Identifiable Information` (**PII**), how to implement
     - [x] **#2**: Implement a `get_logger` function that takes no arguments and returns a `logging.Logger` object.
     - [x] **#3**: Implement a `get_db` function that returns a connector to the database.
     - [x] **#4**: Implement a `main` function that takes no arguments and returns nothing.
-- [encrypt_password.py](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x00-personal_data/encrypt_password.py):
+- [encrypt_password.py](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x00-personal_data/encrypt_password.py): Multiple task:
+    - [x] **#0**: Implement a `hash_password` function that expects one string argument name `password` and returns a salted, hashed password, which is a byte string.
 
 > [test_files](): A folder of test files. Provided by Alx.
