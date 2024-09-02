@@ -36,5 +36,6 @@ I learnt about `Personally Identifiable Information` (**PII**), how to implement
     - [x] **#4**: Implement a `main` function that takes no arguments and returns nothing.
 - [encrypt_password.py](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x00-personal_data/encrypt_password.py): Multiple task:
     - [x] **#0**: Implement a `hash_password` function that expects one string argument name `password` and returns a salted, hashed password, which is a byte string.
+    - [x] **#1**: Implement an `is_valid` function that expects 2 arguments and returns a boolean.
 
 > [test_files](): A folder of test files. Provided by Alx.
