@@ -33,7 +33,7 @@ I learnt about `Personally Identifiable Information` (**PII**), how to implement
     - DO NOT extrapolate `FORMAT` manually. The `format` method should be less than 5 lines long.
     - [x] **#2**: Implement a `get_logger` function that takes no arguments and returns a `logging.Logger` object.
     - [x] **#3**: Implement a `get_db` function that returns a connector to the database.
-    - [ ] **#4**:
+    - [x] **#4**: Implement a `main` function that takes no arguments and returns nothing.
 - [encrypt_password.py](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x00-personal_data/encrypt_password.py):
 
 > [test_files](): A folder of test files. Provided by Alx.
