@@ -3,6 +3,7 @@
 """
 import base64
 from api.v1.auth.auth import Auth
+from models.user import User
 
 
 class BasicAuth(Auth):
@@ -68,3 +69,29 @@ class BasicAuth(Auth):
         # Split the string into user email and password
         user_credentials = decoded_base64_authorization_header.split(":", 1)
         return user_credentials[0], user_credentials[1]
+
+    def user_object_from_credentials(self, user_email: str, user_pwd: str):
+        """
+        Retrieves the User instance based on email and password.
+
+        Returns:
+            The User instance if credentials are valid, or None if invalid.
+        """
+        if user_email is None or not isinstance(user_email, str):
+            return None
+        if user_pwd is None or not isinstance(user_pwd, str):
+            return None
+
+        # Search for the user in the database using their email
+        user_list = User.search({"email": user_email})
+        if len(user_list) == 0:
+            return None
+
+        # There's only one user per email
+        user = user_list[0]
+
+        # Validate the user's password
+        if not user.is_valid_password(user_pwd):
+            return None
+
+        return user
