@@ -10,6 +10,7 @@ In this repository, you will find a collection of projects and assignments that 
 
 - [0x00. Personal data](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x00-personal_data)
 - [0x01. Basic authentication](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x01-Basic_authentication)
+- [0x02. Session authentication](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x02-Session_authentication)
 - [](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/)
 
 ## Environment
