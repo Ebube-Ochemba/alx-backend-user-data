@@ -4,6 +4,7 @@
 import base64
 from api.v1.auth.auth import Auth
 from models.user import User
+from typing import TypeVar
 
 
 class BasicAuth(Auth):
@@ -70,7 +71,10 @@ class BasicAuth(Auth):
         user_credentials = decoded_base64_authorization_header.split(":", 1)
         return user_credentials[0], user_credentials[1]
 
-    def user_object_from_credentials(self, user_email: str, user_pwd: str):
+    def user_object_from_credentials(self,
+                                     user_email: str,
+                                     user_pwd: str
+                                     ) -> TypeVar('User'):
         """
         Retrieves the User instance based on email and password.
 
