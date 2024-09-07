@@ -88,18 +88,17 @@ class BasicAuth(Auth):
             return None
 
         # Search for the user in the database using their email
-        user_list = User.search({"email": user_email})
-        if len(user_list) == 0:
+        try:
+            user_list = User.search({"email": user_email})
+        except Exception:
             return None
-
-        # There's only one user per email
-        user = user_list[0]
 
         # Validate the user's password
-        if not user.is_valid_password(user_pwd):
-            return None
+        for user in user_list:
+            if user.is_valid_password(user_pwd):
+                return user
 
-        return user
+        return None
 
     def current_user(self, request=None):
         """
