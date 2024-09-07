@@ -91,7 +91,7 @@ class BasicAuth(Auth):
         try:
             user_list = User.search({"email": user_email})
         except Exception:
-            None
+            return None
 
         # Validate the user's password
         for user in user_list:
