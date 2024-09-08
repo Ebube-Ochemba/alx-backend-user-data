@@ -24,23 +24,29 @@ class SessionDBAuth(SessionExpAuth):
         if session_id is None:
             return None
 
-        user_sessions = UserSession.search({"session_id": session_id})
-        if not user_sessions:
-            return None
+        try:
+            # Search for UserSession with the given session_id
+            user_sessions = UserSession.search({"session_id": session_id})
+            if not user_sessions:
+                return None
 
-        session = user_sessions[0]
-        if self.session_duration <= 0:
+            session = user_sessions[0]
+            if self.session_duration <= 0:
+                return session.user_id
+
+            created_at = session.created_at
+            if created_at is None:
+                return None
+
+            expiration_time = created_at + timedelta(
+                seconds=self.session_duration)
+            if datetime.now() > expiration_time:
+                return None
+
             return session.user_id
-
-        created_at = session.created_at
-        if created_at is None:
+        except KeyError:
+            # If no session is found, return None
             return None
-
-        expiration_time = created_at + timedelta(seconds=self.session_duration)
-        if datetime.now() > expiration_time:
-            return None
-
-        return session.user_id
 
     def destroy_session(self, request=None):
         """Destroy the session based on ID from the request cookie."""
