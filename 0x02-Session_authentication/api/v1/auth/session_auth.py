@@ -33,3 +33,15 @@ class SessionAuth(Auth):
 
         # Retrieve the user ID from the Class attribute storage
         return self.user_id_by_session_id.get(session_id)
+
+    def current_user(self, request=None):
+        """ Retrieves a User instance based on a session ID """
+        session_id = self.session_cookie(request)
+        if session_id is None:
+            return None
+
+        user_id = self.user_id_for_session_id(session_id)
+        if user_id is None:
+            return None
+
+        return User.get(user_id)
