@@ -48,4 +48,3 @@ class DB:
 
         # Return the new User object
         return new_user
-    
