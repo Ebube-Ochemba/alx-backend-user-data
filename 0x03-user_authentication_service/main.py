@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""""""
+"""A module for End-to-end integration testing"""
 import requests
 
 BASE_URL = "http://localhost:5000"
