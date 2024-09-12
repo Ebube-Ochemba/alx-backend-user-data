@@ -50,3 +50,17 @@ class DB:
             raise InvalidRequestError()
 
         return user
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """Update a user's attributes"""
+        # Find the user by id
+        user = self.find_user_by(id=user_id)
+
+        # Update the user's attributes
+        for key, value in kwargs.items():
+            # Check if the attribute exists on the User model
+            if not hasattr(user, key):
+                raise ValueError(f"Invalid attribute: {key}")
+            setattr(user, key, value)
+
+        self._session.commit()
