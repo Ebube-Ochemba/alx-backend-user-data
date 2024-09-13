@@ -16,4 +16,4 @@ I learnt about how to declare API routes in a Flask app, how to get and set cook
 - [x] [auth.py](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x03-user_authentication_service/auth.py): A module that handles user authentication while using the app.
 - [x] [main.py](https://github.com/Ebube-Ochemba/alx-backend-user-data/blob/main/0x03-user_authentication_service/main.py): A module for End-to-end integration testing.
 
-> [test_files](): A folder of test files. Provided by Alx.
+> [test_files](./test_files/): A folder of test files. Provided by Alx.
